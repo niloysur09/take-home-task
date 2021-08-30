@@ -1,0 +1,395 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-08-29T22:08:10.252Z",
+    "end": "2021-08-29T22:08:24.596Z",
+    "duration": 14344,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e923deff-14b6-4e0b-acfd-c55a797cb214",
+      "title": "",
+      "fullFile": "cypress/integration/product_purchase.spec.js",
+      "file": "cypress/integration/product_purchase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "945fbf22-c4f0-4d71-b967-2f96e1416065",
+          "title": "Product Purchase",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "04d076a5-769b-46d1-b66e-500b3300e8d5",
+              "title": "Inventory Page",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "has visible inventory items",
+                  "fullTitle": "Product Purchase Inventory Page has visible inventory items",
+                  "timedOut": null,
+                  "duration": 1512,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_pages.CommonPage.InventoryItems().its('length').should('be.gt', 1);",
+                  "err": {},
+                  "uuid": "7f1472ea-e774-4988-b5d7-35f1d373c49c",
+                  "parentUUID": "04d076a5-769b-46d1-b66e-500b3300e8d5",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "has visible price, header and description",
+                  "fullTitle": "Product Purchase Inventory Page has visible price, header and description",
+                  "timedOut": null,
+                  "duration": 1054,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_pages.CommonPage.InventoryItems().first().as('inventoryItem');\ncy.get('@inventoryItem').find('.inventory_item_name').invoke('text').its('length').should('be.gt', 1);\ncy.get('@inventoryItem').find('.inventory_item_desc').invoke('text').its('length').should('be.gt', 1);\ncy.get('@inventoryItem').find('.inventory_item_price').should('have.text', '$29.99');",
+                  "err": {},
+                  "uuid": "0d59317d-1084-480c-a16a-0ebb85a64b41",
+                  "parentUUID": "04d076a5-769b-46d1-b66e-500b3300e8d5",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "has visible page header",
+                  "fullTitle": "Product Purchase Inventory Page has visible page header",
+                  "timedOut": null,
+                  "duration": 922,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.title').should('have.text', 'Products');",
+                  "err": {},
+                  "uuid": "b6f1475b-bbfb-4801-8c5c-a906a281c51c",
+                  "parentUUID": "04d076a5-769b-46d1-b66e-500b3300e8d5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7f1472ea-e774-4988-b5d7-35f1d373c49c",
+                "0d59317d-1084-480c-a16a-0ebb85a64b41",
+                "b6f1475b-bbfb-4801-8c5c-a906a281c51c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3488,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "bc85f8ff-f322-40d8-a682-21541100b094",
+              "title": "Display Order",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "change order according to name",
+                  "fullTitle": "Product Purchase Display Order change order according to name",
+                  "timedOut": null,
+                  "duration": 2060,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let productNames = [];\n_pages.CommonPage.InventoryItems().find('.inventory_item_name').each(($el, index, $list) => {\n  cy.wrap($el).invoke('text').as('item');\n  cy.get('@item').then(item => {\n    productNames.push(item);\n  });\n});\ncy.get('.product_sort_container').should('have.value', 'az').select('Name (Z to A)');\ncy.get('.product_sort_container').should('have.value', 'za');\n_pages.CommonPage.InventoryItems().find('.inventory_item_name').each(($el, index, $list) => {\n  cy.wrap($el).should('have.text', productNames[productNames.length - index - 1]);\n});",
+                  "err": {},
+                  "uuid": "7a1b7b44-540b-4bc1-bc39-b08df5b23e15",
+                  "parentUUID": "bc85f8ff-f322-40d8-a682-21541100b094",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7a1b7b44-540b-4bc1-bc39-b08df5b23e15"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2060,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "013037ee-8672-4584-bb68-33a4ff04e6c4",
+              "title": "Cart",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "add/remove product",
+                  "fullTitle": "Product Purchase Cart add/remove product",
+                  "timedOut": null,
+                  "duration": 1775,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_pages.CommonPage.InventoryItems().first().find('.btn_primary').click();\n_pages.CommonPage.InventoryItems().first().find('.btn_secondary').should('have.text', 'Remove');\n_pages.CommonPage.ShoppingCartBadge().should('have.text', '1');\n_pages.CommonPage.InventoryItems().first().find('.btn_secondary').click();\n_pages.CommonPage.InventoryItems().first().find('.btn_primary').should('have.text', 'Add to cart');\n_pages.CommonPage.ShoppingCartBadge().should('not.exist');",
+                  "err": {},
+                  "uuid": "d724f304-d145-4f83-824f-f53c1eeb0e99",
+                  "parentUUID": "013037ee-8672-4584-bb68-33a4ff04e6c4",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "add final products to cart",
+                  "fullTitle": "Product Purchase Cart add final products to cart",
+                  "timedOut": null,
+                  "duration": 1153,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let inCart = 0;\n_pages.CommonPage.InventoryItems().each(($el, index, $list) => {\n  if (index % 2 == 0) {\n    cy.wrap($el).find('.btn_primary').click();\n    cy.wrap($el).find('.btn_secondary').should('have.class', 'btn btn_secondary btn_small btn_inventory');\n    inCart++;\n  }\n}).then(() => {\n  _pages.CommonPage.ShoppingCartBadge().should('have.text', '' + inCart);\n});",
+                  "err": {},
+                  "uuid": "b7fa6a05-b541-46c0-927d-6fc167ef46f6",
+                  "parentUUID": "013037ee-8672-4584-bb68-33a4ff04e6c4",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d724f304-d145-4f83-824f-f53c1eeb0e99",
+                "b7fa6a05-b541-46c0-927d-6fc167ef46f6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2928,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4229fd16-cd0d-42d2-a036-9a1c4411b983",
+              "title": "Cart Page",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "has visible inventory items",
+                  "fullTitle": "Product Purchase Cart Page has visible inventory items",
+                  "timedOut": null,
+                  "duration": 933,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.shopping_cart_link').click();\n_pages.CommonPage.CartListItems().should('have.length', 3);",
+                  "err": {},
+                  "uuid": "df1fd1c0-ad08-45e7-9c11-f3dc3c46985f",
+                  "parentUUID": "4229fd16-cd0d-42d2-a036-9a1c4411b983",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "has visible price, header and description",
+                  "fullTitle": "Product Purchase Cart Page has visible price, header and description",
+                  "timedOut": null,
+                  "duration": 935,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.shopping_cart_link').click();\n_pages.CommonPage.CartListItems().first().as('inventoryItem');\ncy.get('@inventoryItem').find('.inventory_item_name').should('contain', 'Sauce');\ncy.get('@inventoryItem').find('.inventory_item_desc').invoke('text').its('length').should('be.gt', 1);\ncy.get('@inventoryItem').find('.inventory_item_price').should('have.text', '$29.99');",
+                  "err": {},
+                  "uuid": "f04654a8-a1ac-410b-b1b4-2c6ce2d55b95",
+                  "parentUUID": "4229fd16-cd0d-42d2-a036-9a1c4411b983",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "has visible page header",
+                  "fullTitle": "Product Purchase Cart Page has visible page header",
+                  "timedOut": null,
+                  "duration": 920,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.shopping_cart_link').click();\ncy.get('.title').should('have.text', 'Your Cart');",
+                  "err": {},
+                  "uuid": "e37c8cc4-17e2-4810-abac-dda70f9d9d82",
+                  "parentUUID": "4229fd16-cd0d-42d2-a036-9a1c4411b983",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "df1fd1c0-ad08-45e7-9c11-f3dc3c46985f",
+                "f04654a8-a1ac-410b-b1b4-2c6ce2d55b95",
+                "e37c8cc4-17e2-4810-abac-dda70f9d9d82"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2788,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "3a97ae26-bac2-406f-8dc5-4974d59c52b0",
+              "title": "Cart Details",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "remove product from cart details",
+                  "fullTitle": "Product Purchase Cart Details remove product from cart details",
+                  "timedOut": null,
+                  "duration": 1021,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.shopping_cart_link').click();\nlet RemoveFirstItem = ($cart, $count) => {\n  _pages.CommonPage.CartListItems().first().find('.btn_secondary').click();\n  if ($count) {\n    _pages.CommonPage.ShoppingCartBadge().should('have.text', $count);\n  } else {\n    _pages.CommonPage.ShoppingCartBadge().should('not.exist');\n  }\n};\nRemoveFirstItem('[1,2]', '2');",
+                  "err": {},
+                  "uuid": "6f681f70-b958-4ada-808f-68f035fcbaff",
+                  "parentUUID": "3a97ae26-bac2-406f-8dc5-4974d59c52b0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "checkout and purchase product",
+                  "fullTitle": "Product Purchase Cart Details checkout and purchase product",
+                  "timedOut": null,
+                  "duration": 1857,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.shopping_cart_link').click();\ncy.checkout('Niloy', 'Sur', '712235');",
+                  "err": {},
+                  "uuid": "ee4f509e-2689-4e30-958d-1f17b74a5986",
+                  "parentUUID": "3a97ae26-bac2-406f-8dc5-4974d59c52b0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6f681f70-b958-4ada-808f-68f035fcbaff",
+                "ee4f509e-2689-4e30-958d-1f17b74a5986"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2878,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

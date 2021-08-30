@@ -1,0 +1,18 @@
+{
+    "projectId": "w1srgz",
+    "viewportWidth": 1280,
+    "viewportHeight": 800,
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout" : 5000,
+    "screenshotOnRunFailure": true,
+    "screenshotsFolder": "cypress/report/mochawesome/assets",
+    "baseUrl": "https://www.saucedemo.com/",
+    "reporter": "mochawesome",
+        "reporterOptions": {
+        "reportDir" : "cypress/report/mochawesome",
+        "overwrite" : false,
+        "html" : true,
+        "json" : true,
+        "timestamp" : "mmddyyyy_HHMMss"
+        }
+}
