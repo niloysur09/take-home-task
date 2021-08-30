@@ -2,6 +2,12 @@
 
 This Project automates https://www.saucedemo.com/ website using Cypress.io and generates Mochawesome Reports.
 
+## Test case details
+
+login_verification.spec.js - It verifies all types of user logins provided for saucedemo.com application. It also validated different types of Errors within the login page.
+
+product_purchase.spec.js - It logs in using the "standard_user" and performs different actions like Add/Remove from cart, validate within cart details page and then finally checkout with added products
+
 ## Setup
 
 Install Cypress: npm install cypress --save-dev
