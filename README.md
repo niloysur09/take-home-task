@@ -1,21 +1,20 @@
-This Project automates SauceDemo.com website using Cypress.io and Page Object Model. Also generates Mochawesome Reports.
+# take-home-task Automation
 
-Pre-Requisites
+This Project automates SauceDemo.com website using Cypress.io and generates Mochawesome Reports.
 
-Install latest Chrome browser
-Install Node.js (6 or higher)
-Setup
+## Setup
 
-Install the project dependencies by running command: npm install
-Run Test
+Install Cypress: npm install cypress --save-dev
 
-Open the Cypress console by running command: npm run cy:open
-Run the test on Chrome browser in headed mode using command: npm run test:headed
-Run the test on Chrome browser in headedless mode using command: npm run test:headless
-Mochawesome Report
+## Runing Test
 
-Generates mochawesome HTML reports at project directory: /mochawesome-report/mochawesome.html
-Other Features
+Open the Cypress UI console by running command: npm run cypress:open
+Select test and run on Electron/Chrome browser from UI console
+OR
+Run test directly from terminal using the below commands:
+Headless - Ex: ./node_modules/.bin/cypress run --spec  "cypress/integration/login_verification.spec.js"
+Headed - Ex:  ./node_modules/.bin/cypress run --spec  "cypress/integration/product_purchase.login.js" --browser chrome --headed
 
-On every code push/change to master branch it runs the entire build on CircleCI and Cypress Dashboard as post deployment check.
-We can also run this project on Docker using command: sh docker-cy-run.sh
+## Reporting
+
+Generates mochawesome HTML and JSON reports (with date and time stamp under: report/mochawesome
