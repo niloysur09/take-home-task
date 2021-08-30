@@ -12,6 +12,8 @@ product_purchase.spec.js - It logs in using the "standard_user" and performs dif
 
 Install Cypress: npm install cypress --save-dev
 
+Install this cypress extention: npm i --save-dev cypress-localstorage-commands
+
 ## Runing Test
 
 Open the Cypress UI console by running command: npm run cypress:open
